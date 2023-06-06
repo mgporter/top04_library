@@ -34,9 +34,9 @@
             <div class="form-section">
                 <input type="radio" name="readStatus" id="unread" value="unread" default>
                 <label for="unread">unread</label><br>
-                <input type="radio" name="readStatus" id="currently_reading" value="currently_reading">
+                <input type="radio" name="readStatus" id="currently_reading" value="currently">
                 <label for="currently_reading">currently reading</label><br>
-                <input type="radio" name="readStatus" id="finished_reading" value="finished_reading">
+                <input type="radio" name="readStatus" id="finished_reading" value="finished">
                 <label for="finished_reading">finished reading</label><br>
             </div>
             <div class="form-section">
@@ -50,8 +50,8 @@
 
 </div>
 <div id="content-container">
-    <div class="library-row">
-        <div class="book-container">
+    <!-- <div class="library-row">
+        <div data-book="1" class="book-container">
             <img data-book="1" src="./spotlight3.png" alt="">
             <div class="book">
                 <div class="book-content-container">
@@ -60,22 +60,18 @@
                     <h4 class="book-content author">By<br> Michael Porter</h4>
                     
                     <div class="book-content status">
-                        <div data-book="1" class="status-dropdown">
-                            <div class="status-dropdown-item">unread<div class="book-content status-color"></div></div>
-                            <div class="status-dropdown-item">in progress<div class="book-content status-color"></div></div>
-                            <div class="status-dropdown-item">finished<div class="book-content status-color"></div></div>
-                        </div>
                         <h4 class="book-content pages">545 pages</h4>
-                        <div class="book-content status-button">
-                            <div class="book-content status-color"></div>
+                        <div data-book="1" class="book-content status-button">
+                            <div data-book="1" data-readstatus="unread" class="book-content status-color"></div>
+                        </div>
+                        <div data-book="1" class="status-dropdown hidden">
+                            <div data-book="1" class="status-dropdown-item">unread<div data-readstatus="unread" class="book-content status-color status-unread"></div></div>
+                            <div data-book="1" class="status-dropdown-item">in progress<div data-readstatus="currently" class="book-content status-color status-currently"></div></div>
+                            <div data-book="1" class="status-dropdown-item">finished<div data-readstatus="finished" class="book-content status-color status-finished"></div></div>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
-            
         </div>
 
         <div class="book-container">
@@ -101,7 +97,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div id="library-row"></div>
 </div>
 <!-- <div id="bottom-container">
