@@ -11,7 +11,102 @@
 </head>
 <body>
 
+<div id="top-container">
+    <h1 id="library-title">My Bookshelf</h1>
+    <div id="add-book-container">+</div>
+    <div id="add-book-dialog-box" class="hidden">
+        <form action="#" method="post" id="add-book-form">
+            <div class="form-section">
+                <label for="title">Title:</label><br>
+                <input type="text" name="title" id="title">
+            </div>
 
+            <div class="form-section">
+                <label for="author">Author:</label><br>
+                <input type="text" name="author" id="author">
+            </div>
+
+            <div class="form-section">
+                <label for="pagecount">Pages:</label><br>
+                <input type="number" name="pagecount" id="pagecount">
+            </div>
+
+            <div class="form-section">
+                <input type="radio" name="readStatus" id="unread" value="unread" default>
+                <label for="unread">unread</label><br>
+                <input type="radio" name="readStatus" id="currently_reading" value="currently_reading">
+                <label for="currently_reading">currently reading</label><br>
+                <input type="radio" name="readStatus" id="finished_reading" value="finished_reading">
+                <label for="finished_reading">finished reading</label><br>
+            </div>
+            <div class="form-section">
+                <button type="submit" id="formsubmit">submit</button>
+                <button type="reset">reset form</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="top-separator">
+
+</div>
+<div id="content-container">
+    <div class="library-row">
+        <div class="book-container">
+            <img data-book="1" src="./spotlight3.png" alt="">
+            <div class="book">
+                <div class="book-content-container">
+                    <button class="delete-book-btn"></button>
+                    <div class="book-content title"><h3>Long title that is really long</h3></div>
+                    <h4 class="book-content author">By<br> Michael Porter</h4>
+                    
+                    <div class="book-content status">
+                        <div data-book="1" class="status-dropdown">
+                            <div class="status-dropdown-item">unread<div class="book-content status-color"></div></div>
+                            <div class="status-dropdown-item">in progress<div class="book-content status-color"></div></div>
+                            <div class="status-dropdown-item">finished<div class="book-content status-color"></div></div>
+                        </div>
+                        <h4 class="book-content pages">545 pages</h4>
+                        <div class="book-content status-button">
+                            <div class="book-content status-color"></div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="book-container">
+            <div class="book">
+                <div class="book-content-container">
+                    <div class="delete-book-btn"></div>
+                    <div class="book-content title"><h3>Short title</h3></div>
+                    <h4 class="book-content author">By Long name with gjuye</h4>
+                    <h4 class="book-content pages">245 pages</h4>
+                    <h4 class="book-content status">Status: unread</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="book-container">
+            <div class="book">
+                <div class="book-content-container">
+                    <div class="delete-book-btn"></div>
+                    <div class="book-content title"><h3>Very very long title with cannot display Long title that is really long</h3></div>
+                    <h4 class="book-content author">superman long Michael Porter</h4>
+                    <h4 class="book-content pages">245 pages</h4>
+                    <h4 class="book-content status">Status: unread</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="library-row"></div>
+</div>
+<!-- <div id="bottom-container">
+
+</div> -->
 
 </body>
 </html>

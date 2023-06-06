@@ -1,0 +1,328 @@
+/* * {
+    border: 1px solid red !important;
+} */
+
+:root {
+    font-size: 18px;
+    --top-bottom-bg-color: rgb(81, 53, 14);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+    background-image: url(./woodbg_tilable.png);
+    background-size: 100px;
+}
+
+/* TOP CONTAINER ELEMENTS */
+
+div {
+    display: flex;
+}
+
+#top-container {
+    width:100%;
+    top:0;
+    position:fixed;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+    z-index: 20;
+    background-color: var(--top-bottom-bg-color);
+    color: white;
+    border-bottom: 2px solid black;
+}
+
+#library-title {
+    font-size: 3rem;
+}
+
+#add-book-container {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    position:absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    color: rgb(54, 54, 54);
+    font-weight: bold;
+    font-size: 3rem;
+    border: 1px solid rgb(96, 96, 96);
+    background: radial-gradient(rgb(239, 239, 239) 30%, rgb(150, 150, 150) 100%);
+    justify-content: center;
+    align-items: center;
+}
+
+#add-book-dialog-box {
+    position: absolute;
+    right: 2rem;
+    top: 5.5rem;
+    /* width: 300px;
+    height: 400px; */
+    padding: 22px;
+    background-color: white;
+    color:black;
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    border-radius: 24px;
+    box-shadow: 4px 4px 8px 4px black;
+    visibility: hidden;
+    flex-direction:column;
+    justify-content: flex-start;
+}
+
+#add-book-form {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+}
+
+#add-book-form input[type=text],
+#add-book-form input[type=number] {
+    width:260px;
+}
+
+.form-section {
+    display:block;
+}
+
+#top-separator {
+    height: 3rem;
+    margin-top: 4.2rem;
+    background-image: url(./shelf.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% 100%;
+}
+
+
+/* CONTENT AREA ELEMENTS */
+
+#content-container {
+    width: 100%;
+    justify-content: center;
+    align-items: stretch;
+    background-image: url(./woodbg_tilable.png);
+    background-position: center center;
+    background-size: 100px;
+    display: block;
+}
+
+.library-row {
+    width: 100%;
+    height: 24rem;
+    background-image: url(./shelf.png);
+    background-repeat: no-repeat;
+    background-size: 100% 54px;
+    background-position: center bottom;
+    border-bottom: 2px solid black;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    position:relative;
+}
+
+.library-row:before {
+    content: "";
+    /* display: block; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* width: max(0px, calc(50vw - 548px)); */
+    /* height: 100%; */
+
+    background-color: #4f4f4f;
+    mix-blend-mode: multiply;
+}
+
+
+
+/* BOOK OBJECTS */
+
+.book-container {
+    /* border: 1px red solid; */
+    width: 360px;
+    height: 100%;
+    flex: 0 0 auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+
+}
+
+.book-container > img {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 104%;
+    object-fit: cover;
+    mix-blend-mode: soft-light;
+}
+
+.book {
+    margin-bottom: 28px;
+    background-image: url(./book.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 83% 100%;
+    filter: drop-shadow(6px 3px 6px #000000);
+    width: 288px;
+    height: 302px;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.book-content-container {
+    margin: 36px 14% 0px 9%;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 77%;
+    height: 86%;
+    flex: 0 0 auto;
+    position: relative;
+    font-size: 1.4rem;
+    text-align: center;
+    color: black;
+    line-height: 1.6rem;
+}
+
+/* ELEMENTS ON THE BOOKS */
+
+.delete-book-btn {
+    position: absolute;
+    color: black;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(112, 112, 112);
+    background:darkgrey;
+    font-weight: bold;
+    font-size: 1.5rem;
+    top: -10px;
+    right: 5px;
+    background-image: url(./recycle-bin-line-icon.svg);
+    background-size:70%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.delete-book-btn:hover {
+    background-color:white;
+}
+
+.book-content {
+    padding: 0px 4px;
+}
+
+.book-content.title {
+    font-size: 1.4rem;
+    margin-top:16px;
+    font-weight: bold;
+    height: 6.0rem;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff77;
+}
+
+.book-content.title > h3 {
+    line-height: 1.2em;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+}
+
+.book-content.author {
+    margin-top: 0;
+    font-size: 1.2rem;
+    font-style: italic;
+    height: 3.2rem;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+}
+
+.book-content.status {
+    margin: 0 10% 0 6%;
+    padding: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    position:relative;
+}
+
+.book-content.pages {
+    padding: 0 12px;
+    margin: 0;
+    border-radius: 2px 0 0 2px;
+    flex: 1 0 50%;
+    height:100%;
+    border: 1px solid gray;
+    background: linear-gradient(180deg, rgba(208,208,208,0.8) 0%, rgba(138,138,138,0.8) 100%);
+}
+
+.book-content.status-button {
+    border-radius: 0 16px 16px 0;
+    padding: 0;
+    flex: 0 1 25%;
+    justify-content: flex-end;
+    align-items: center;
+    height:100%;
+    border-color: gray;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    background: linear-gradient(180deg, rgba(208,208,208,0.8) 0%, rgba(138,138,138,0.8) 100%);
+}
+
+.book-content.status-color {
+    background-color: red;
+    clip-path: circle(40% at 50% 50%);
+    border: 1px solid darkgray;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin-right: 6px;
+}
+
+
+/* READ STATUS DROPDOWN */
+
+.status-dropdown {
+    position: absolute;
+    width: 180px;
+    height: 100px;
+    border: 1px solid  darkgray;
+    border-radius: 16px;
+    right: 0px;
+    bottom: -1px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgba(208,208,208,1);
+    z-index: 999;
+
+}
+
+.status-dropdown-item {
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+}
+
+/* BOTTOM CONTAINER ELEMENTS */
+
+#bottom-container {
+    width: 100%;
+    height: 400px;
+    background-color: var(--top-bottom-bg-color);
+}
