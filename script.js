@@ -3,13 +3,32 @@ const addBookDialogBox = document.getElementById('add-book-dialog-box');
 const addBookForm = document.getElementById('add-book-form')
 const submitBtn = document.getElementById('formsubmit');
 const contentContainer = document.getElementById('content-container');
+const bprNumberBox = document.getElementById('books-per-row-spinbox')
+const spinboxIncrease = document.getElementById('spinbox-increase')
+const spinboxDecrease = document.getElementById('spinbox-decrease')
+const autoPopulateBtn = document.getElementById('autopopulate')
+
+
 
 let deleteBookBtns;
 let statusButtons;
 let statusDropdownMenus;
 
 let myLibrary = [];
-let numberOfBooksPerRow = 5;
+let numberOfBooksPerRow = 3;
+
+
+spinboxIncrease.addEventListener('click', () => {
+    if (+(bprNumberBox.textContent) === 5) return;
+    bprNumberBox.textContent = numberOfBooksPerRow = +(bprNumberBox.textContent) + 1
+    displayLibrary();
+})
+
+spinboxDecrease.addEventListener('click', () => {
+    if (+(bprNumberBox.textContent) === 1) return;
+    bprNumberBox.textContent = numberOfBooksPerRow = +(bprNumberBox.textContent) - 1
+    displayLibrary();
+})
 
 
 
@@ -167,54 +186,65 @@ addBookButton.addEventListener('click', () => {
 
 
 // gets the book information from the add book form, then calls the addBookTolibrary function
-addBookForm.addEventListener('submit', (e) => {
+addBookForm.addEventListener('submit', function(e) {
     e.preventDefault()
-    const title = e.target[0].value
-    const author = e.target[1].value
-    const pagecount = e.target[2].value
+    const title = this[0].value
+    const author = this[1].value
+    const pagecount = document.querySelector('input#pagecount').value
     const readStatus = document.querySelector('input[name="readStatus"]:checked').value;
 
     addBookToLibrary(title, author, pagecount, readStatus)
 
+    addBookForm.reset()
+    toggleVisibility(addBookDialogBox)
+
 }, false)
 
 
-// dummy books
-let books = [
-    {
-        'title': 'The Great Gatsby',
-        'author': 'F. Scott Fitzgerald',
-        'pagecount': '378 pages',
-        'readStatus': 'unread',
-    },
-    {
-        'title': 'To Kill A Mockingbird',
-        'author': 'Harper Lee',
-        'pagecount': '298 pages',
-        'readStatus': 'finished',
-    },
-    {
-        'title': 'Moby-Dick',
-        'author': 'Herman Melville',
-        'pagecount': '514 pages',
-        'readStatus': 'unread',
-    },
-    {
-        'title': 'Pride and Prejudice',
-        'author': 'Jane Austen',
-        'pagecount': '371 pages',
-        'readStatus': 'currently',
-    },
-    {
-        'title': 'Adventures of Huckleberry Finn',
-        'author': 'Mark Twain',
-        'pagecount': '213 pages',
-        'readStatus': 'unread',
-    },
-]
+// autopopulate the library with classic books
+const autoPopulateLibrary = function() {
+    const books = [
+        {
+            'title': 'The Great Gatsby',
+            'author': 'F. Scott Fitzgerald',
+            'pagecount': '378 pages',
+            'readStatus': 'unread',
+        },
+        {
+            'title': 'To Kill A Mockingbird',
+            'author': 'Harper Lee',
+            'pagecount': '298 pages',
+            'readStatus': 'finished',
+        },
+        {
+            'title': 'Moby-Dick',
+            'author': 'Herman Melville',
+            'pagecount': '514 pages',
+            'readStatus': 'unread',
+        },
+        {
+            'title': 'Pride and Prejudice',
+            'author': 'Jane Austen',
+            'pagecount': '371 pages',
+            'readStatus': 'currently',
+        },
+        {
+            'title': 'Adventures of Huckleberry Finn',
+            'author': 'Mark Twain',
+            'pagecount': '213 pages',
+            'readStatus': 'unread',
+        },
+    ]
+    
+    books.forEach((book) => {
+        myLibrary.push(book)
+    })
+    
+    displayLibrary()
+}
 
-books.forEach((book) => {
-    myLibrary.push(book)
-})
+autoPopulateBtn.addEventListener('click', autoPopulateLibrary)
 
-displayLibrary()
+
+
+

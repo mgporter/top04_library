@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>My Bookshelf</title>
     <link rel="stylesheet" type="text/css" href="./meyer_reset.css"></link>
     <link rel="stylesheet" type="text/css" href="./style.css"></link>
     <script type="text/javascript" src="./script.js" defer></script>
@@ -12,34 +12,51 @@
 <body>
 
 <div id="top-container">
+    <div id="books-per-row-container">
+        <div id="bpr-top-row">
+            <h4>Books per row: </h4>
+            <div id="books-per-row-spinbox">3</div>
+            <div id="spinbox-controls-container">
+                <button type="button" id="spinbox-increase" class="spinbox-controls">&#9650;</button>
+                <button type="button" id="spinbox-decrease" class="spinbox-controls">&#9660;</button>
+            </div>
+        </div>
+        <div id="bpr-bottom-row">
+            <button id="autopopulate">Auto-populate</button>
+        </div>
+    </div>
     <h1 id="library-title">My Bookshelf</h1>
     <div id="add-book-container">+</div>
     <div id="add-book-dialog-box" class="hidden">
         <form action="#" method="post" id="add-book-form">
-            <div class="form-section">
-                <label for="title">Title:</label><br>
-                <input type="text" name="title" id="title">
+            <div class="form-section-top">
+                <label style="font-weight:bold;" for="title">Title*:</label><br>
+                <input type="text" name="title" id="title" maxlength="255" minlength="1" placeholder="Book title" spellcheck="true" required>
             </div>
 
-            <div class="form-section">
-                <label for="author">Author:</label><br>
-                <input type="text" name="author" id="author">
+            <div class="form-section-top">
+                <label style="font-weight:bold;" for="author">Author*:</label><br>
+                <input type="text" name="author" id="author" maxlength="255" minlength="1" placeholder="Book author" spellcheck="false" required>
             </div>
 
-            <div class="form-section">
-                <label for="pagecount">Pages:</label><br>
-                <input type="number" name="pagecount" id="pagecount">
-            </div>
-
-            <div class="form-section">
-                <input type="radio" name="readStatus" id="unread" value="unread" default>
-                <label for="unread">unread</label><br>
-                <input type="radio" name="readStatus" id="currently_reading" value="currently">
-                <label for="currently_reading">currently reading</label><br>
-                <input type="radio" name="readStatus" id="finished_reading" value="finished">
-                <label for="finished_reading">finished reading</label><br>
-            </div>
-            <div class="form-section">
+            <fieldset>
+            <legend><span style="font-weight:bold;">Optional details</span></legend>
+                <div id="form-section-bottom-row-container">
+                    <div id="form-section-pages">
+                        <input type="number" name="pagecount" id="pagecount" min="1" max="9999">
+                        <label for="pagecount">pages</label>
+                    </div>
+                    <div id="form-section-readstatus">
+                        <input type="radio" name="readStatus" id="unread" value="unread" checked>
+                        <label for="unread">unread</label><br>
+                        <input type="radio" name="readStatus" id="currently_reading" value="currently">
+                        <label for="currently_reading">currently reading</label><br>
+                        <input type="radio" name="readStatus" id="finished_reading" value="finished">
+                        <label for="finished_reading">finished reading</label><br>
+                    </div>
+                </div>
+            </fieldset>
+            <div id="add-book-button-section" class="form-section">
                 <button type="submit" id="formsubmit">submit</button>
                 <button type="reset">reset form</button>
             </div>

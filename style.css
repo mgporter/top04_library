@@ -45,13 +45,81 @@ div {
     font-size: 3rem;
 }
 
+#books-per-row-container {
+    flex-direction: column;
+    position:absolute;
+    left:1.5rem;
+    gap:8px;
+}
+
+#bpr-top-row {
+    font-size:1.4rem;
+    align-items:center;
+    justify-content: flex-start;
+}
+
+#books-per-row-spinbox {
+    border: 1px solid black;
+    background: rgb(190, 190, 190);
+    width: 1.7rem;
+    height: 1.7rem;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    margin: 0 0 0 8px;
+    border-radius: 8px 0 0 8px;
+}
+
+#spinbox-controls-container {
+    flex-direction: column;
+    justify-content: space-around;
+    width: 1rem;
+    height: 1.7rem;
+    gap: 4px;
+    background-color: black;
+}
+
+#spinbox-controls-container > button {
+    font-size:0.4rem;
+    text-align: center;
+    padding:0;
+    flex: 1 1 auto;
+    margin:0;
+}
+
+#bpr-bottom-row {
+    justify-content: center;
+}
+
+#bpr-bottom-row > button {
+    font-size: 1rem;
+    border-radius: 12px;
+    padding: 4px 16px;
+    cursor:pointer;
+}
+
+#bpr-bottom-row > button:hover {
+    background-color:darkgray;
+}
+
+#top-separator {
+    height: 3rem;
+    margin-top: 4.2rem;
+    background-image: url(./shelf.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% 100%;
+}
+
+
+/* ADD BOOK DIALOG BOX AND BUTTON */
+
 #add-book-container {
     width: 3rem;
     height: 3rem;
     border-radius: 1rem;
     position:absolute;
     right: 1.5rem;
-    top: 1.5rem;
     color: rgb(54, 54, 54);
     font-weight: bold;
     font-size: 3rem;
@@ -60,21 +128,28 @@ div {
     background: radial-gradient(rgb(239, 239, 239) 30%, rgb(150, 150, 150) 100%);
     justify-content: center;
     align-items: center;
+    cursor:pointer;
+}
+
+#add-book-container:hover {
+    background: radial-gradient(rgb(183, 183, 183) 30%, rgb(117, 117, 117) 100%);
+}
+
+#add-book-container:active {
+    background: radial-gradient(rgb(163, 163, 163) 30%, rgb(94, 94, 94) 100%);
 }
 
 #add-book-dialog-box {
     position: absolute;
     right: 2rem;
-    top: 5.5rem;
-    /* width: 300px;
-    height: 400px; */
+    top: 5.2rem;
     padding: 22px;
-    background-color: rgb(255, 223, 202);
+    background-color: rgb(231, 231, 231);
     color:black;
     font-size: 1.1rem;
     line-height: 1.4rem;
     border-radius: 24px;
-    box-shadow: 4px 4px 8px 4px black;
+    box-shadow: 4px 4px 4px 4px black;
     flex-direction:column;
     justify-content: flex-start;
 }
@@ -87,22 +162,79 @@ div {
     gap: 24px;
 }
 
-#add-book-form input[type=text],
-#add-book-form input[type=number] {
-    width:260px;
+#add-book-form input[type="text"] {
+    font-size:1.2rem;
+    padding:8px;
+    margin-top:4px;
+    border-radius: 8px;
+    width:300px;
 }
 
-.form-section {
+#add-book-form input[type="number"] {
+    font-size:1.2rem;
+    padding:8px;
+    margin-top:4px;
+    border-radius: 8px;
+    width:3rem;
+}
+
+.form-section-top {
     display:block;
 }
 
-#top-separator {
-    height: 3rem;
-    margin-top: 4.2rem;
-    background-image: url(./shelf.png);
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    background-size: 100% 100%;
+fieldset {
+    border:1px solid darkgray;
+    width:100%;
+}
+
+legend {
+    margin-left: 12px;
+}
+
+#form-section-bottom-row-container {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#form-section-pages {
+    width: 30%;
+    flex:1 1 auto;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+    font-style:italic;
+}
+
+#form-section-readstatus {
+    width:60%;
+    flex:2 0 auto;
+    display:block;
+    margin: 0 0 12px 0;
+}
+
+#form-section-readstatus > input {
+    margin:8px;
+}
+
+#add-book-button-section {
+    width: 100%;
+    gap:20px;
+    justify-content: center;
+}
+
+#add-book-button-section > button {
+    padding: 8px 16px;
+    font-size:1rem;
+    border-radius:12px;
+    background:white;
+}
+
+#add-book-button-section > button:hover {
+    background:rgb(204, 204, 204);
+}
+
+#add-book-button-section button[type="submit"] {
+    font-weight:bold;
 }
 
 
@@ -364,17 +496,6 @@ div {
     background-color: rgb(138, 138, 138);
 }
 
-/* .book-content.status-color.unread {
-    background-color: rgb(216, 0, 0);
-}
-
-.in-progress {
-    background-color: rgb(255, 145, 0);
-}
-
-.book-content.status-color.finished {
-    background-color: rgb(0, 190, 0); */
-}
 
 /* BOTTOM CONTAINER ELEMENTS */
 
