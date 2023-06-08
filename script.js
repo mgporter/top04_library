@@ -82,9 +82,12 @@ const deleteBook = function(e) {
 function displayLibrary() {
    
     // first, we remove all elements in the library display window, called contentContainer
-    while (contentContainer.lastChild) {
-        contentContainer.removeChild(contentContainer.lastChild)
-    }
+    contentContainer.textContent = "";
+
+
+    // while (contentContainer.lastChild) {
+    //     contentContainer.removeChild(contentContainer.lastChild)
+    // }
 
     // initialize the number of books per row variable. This is not really necessary
     const bpr = numberOfBooksPerRow;
@@ -110,7 +113,7 @@ function displayLibrary() {
                 
                 // adding the html
                 bookContainer.innerHTML = `
-                <img data-book="${bookIndex}" src="./spotlight3.png" alt="">
+                <img data-book="${bookIndex}" src="./spotlight.png" alt="">
                 <div class="book">
                     <div class="book-content-container">
                         <button data-book="${bookIndex}" class="delete-book-btn"></button>
@@ -245,6 +248,6 @@ const autoPopulateLibrary = function() {
 
 autoPopulateBtn.addEventListener('click', autoPopulateLibrary)
 
-
+displayLibrary()
 
 
